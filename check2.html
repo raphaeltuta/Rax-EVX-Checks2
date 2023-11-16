@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link rel="stylesheet" type="text/css" href="stilize2.css">
+  <title>Check (2/5)</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Check (2/5)</h1>
+    <p>Click no botão abaixo para continuar</p>
+    <button class="naoSouRobo" id="botaoRobo">Key</button>
+    <a href="check3.html" id="linkNovoSite" target="_blank" style="display: none;">Pegar key</a>
+  </div>
+
+  <script>
+    var contadorCliques = 0;
+
+    function clicouBotao() {
+      contadorCliques++;
+      
+      if (contadorCliques <= 2) {
+        if (contadorCliques === 1) {
+          window.open('https://play.google.com/store/apps/details?id=com.lensdistortions.ld&hl=pt_BR&gl=US', '_blank');
+        } else if (contadorCliques === 2) {
+          window.open('https://apps.apple.com/br/app/ld-premium-content-creator/id938026822', '_blank');
+        }
+      } else {
+        // Ativar a âncora após abrir os outros dois sites
+        document.getElementById('linkNovoSite').style.display = 'inline';
+        window.open('https://pt.wikipedia.org/wiki/Futebol', '_blank');
+      }
+      
+      if (contadorCliques >= 3) {
+        document.getElementById('botaoRobo').disabled = true;
+      }
+    }
+
+    document.getElementById('botaoRobo').addEventListener('click', clicouBotao);
+  </script>
+</body>
+</html>

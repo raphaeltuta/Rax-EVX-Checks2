@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <link rel="stylesheet" type="text/css" href="stilize1.css">
+  <title>Check (1/5)</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Check (1/5)</h1>
+    <p>Click no botão abaixo para se verificar</p>
+    <button class="naoSouRobo" id="botaoRobo">Verificação</button>
+    <a href="check2.html" id="linkNovoSite" target="_blank" style="display: none;">Pegar key</a>
+  </div>
+
+  <script>
+    var contadorCliques = 0;
+
+    function clicouBotao() {
+      contadorCliques++;
+      
+      if (contadorCliques <= 2) {
+        if (contadorCliques === 1) {
+          window.open('https://play.google.com/store/apps/details?id=com.mojang.minecraftpe&hl=pt_BR&gl=US', '_blank');
+        } else if (contadorCliques === 2) {
+          window.open('https://promo.sportingbet.com/pt-br/promo/p/sports/latam/bonus-apostas-esportivas-boas-vindas?campaigname=12660&trackerid=5397578&tdpeh=20318898378_150344234549_jogos%20online%20dinheiro%20real_p_671471379296_c_Cj0KCQiAgK2qBhCHARIsAGACuzmdHSCycahcBKh_UASDsWJA6pTUHk2t3HpiP8_uVcmNl-05vY-7usAaAvRSEALw_wcB&btag=303317&gclid=Cj0KCQiAgK2qBhCHARIsAGACuzmdHSCycahcBKh_UASDsWJA6pTUHk2t3HpiP8_uVcmNl-05vY-7usAaAvRSEALw_wcB', '_blank');
+        }
+      } else {
+        // Ativar a âncora após abrir os outros dois sites
+        document.getElementById('linkNovoSite').style.display = 'inline';
+        window.open('https://tecnoblog.net/responde/como-ganhar-robux-no-roblox/', '_blank');
+      }
+      
+      if (contadorCliques >= 3) {
+        document.getElementById('botaoRobo').disabled = true;
+      }
+    }
+
+    document.getElementById('botaoRobo').addEventListener('click', clicouBotao);
+  </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #007bff;
+        }
+
+        p {
+            font-size: 16px;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Aguarde...</h1>
+        <p>Você está sendo verificado.</p>
+        <a href="check4.html" id="linkRedirecionamento" style="display: none;">Redirecionar agora</a>
+    </div>
+
+    <script>
+        setTimeout(function() {
+            document.getElementById('linkRedirecionamento').click();
+        }, 20000); // 20 segundos
+    </script>
+</body>
+</html>

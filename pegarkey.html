@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Rax EVX Key</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+
+    #textoDinamico {
+      font-size: 24px;
+      color: #007bff;
+    }
+
+    #botaoForcarAtualizacao,
+    #botaoCopiarTexto {
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    #botaoForcarAtualizacao:hover,
+    #botaoCopiarTexto:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Key</h1>
+    <p id="textoDinamico">awserdtfyguhijokuyntedwa</p>
+
+    <!-- Adiciona o botão para forçar a atualização -->
+    <button id="botaoForcarAtualizacao">Atualizar key</button>
+
+    <!-- Adiciona o botão para copiar o texto -->
+    <button id="botaoCopiarTexto">Copiar key</button>
+  </div>
+
+  <script>
+    function atualizarTexto() {
+      var dataAtual = new Date();
+      var dataUltimaAtualizacao = new Date(localStorage.getItem('ultimaAtualizacao'));
+      
+      // Se passaram mais de 24 horas desde a última atualização, resete o texto
+      if (dataAtual - dataUltimaAtualizacao >= 24 * 60 * 60 * 1000) {
+        document.getElementById('textoDinamico').innerText = 'qawsexdcrtfvgybhkjh,gmdcfgvbhjn';
+        
+        // Atualize a data da última atualização para a data atual
+        localStorage.setItem('ultimaAtualizacao', new Date().toISOString());
+      }
+    }
+
+    // Verifique a última atualização ao carregar a página
+    window.onload = function() {
+      var ultimaAtualizacao = localStorage.getItem('ultimaAtualizacao');
+
+      // Se não houver registro de última atualização, defina a data atual
+      if (!ultimaAtualizacao) {
+        localStorage.setItem('ultimaAtualizacao', new Date().toISOString());
+      } else {
+        // Se houver, atualize o texto se necessário
+        atualizarTexto();
+      }
+    };
+
+    // Adiciona o evento de clique para forçar a atualização
+    document.getElementById('botaoForcarAtualizacao').addEventListener('click', function() {
+      // Atualiza o texto imediatamente ao forçar a atualização
+      document.getElementById('textoDinamico').innerText = 'awsedrtfgyuhlijikyujtrdtf';
+      localStorage.setItem('ultimaAtualizacao', new Date().toISOString());
+    });
+
+    // Adiciona o evento de clique para copiar o texto
+    document.getElementById('botaoCopiarTexto').addEventListener('click', function() {
+      var textoParaCopiar = document.getElementById('textoDinamico').innerText;
+      
+      // Cria um elemento de texto temporário para copiar o conteúdo
+      var tempInput = document.createElement('textarea');
+      tempInput.value = textoParaCopiar;
+      document.body.appendChild(tempInput);
+      
+      // Seleciona e copia o texto
+      tempInput.select();
+      document.execCommand('copy');
+      
+      // Remove o elemento temporário
+      document.body.removeChild(tempInput);
+
+      alert('Texto copiado para a área de transferência: ' + textoParaCopiar);
+    });
+  </script>
+</body>
+</html>
